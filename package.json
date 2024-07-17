@@ -1,0 +1,25 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "this is namaste React by ashish kumar",
+ 
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ashishk9670/namaste-react.git"
+  },
+  "keywords": [
+  ],
+  "author": "ashish",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ashishk9670/namaste-react/issues"
+  },
+  "homepage": "https://github.com/Ashishk9670/namaste-react#readme",
+  "browserlist" :[
+    "last 2  version"
+  ]
+
+}
