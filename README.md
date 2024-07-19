@@ -53,3 +53,7 @@
  # Routing
     - client side
     - server side
+
+# Chunking/Code splitting /Dynamic bundling/
+# Lazy loading/on demand loading/dynamic import
+- 
