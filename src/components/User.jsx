@@ -8,8 +8,8 @@ const User = (props) => {
 
     // api call
     // useEffect()
-    
-    return <div className="user-card">
+
+    return <div className="user-card m-4 p-4 bg-green-500">
         <h1>Count: {count} </h1>
         <h1>Count: {count2} </h1>
         <h2>Name: {props.name} </h2>

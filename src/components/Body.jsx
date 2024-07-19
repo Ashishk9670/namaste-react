@@ -35,22 +35,23 @@ const Body = () => {
     if(onlineStatus===false)
         return (
     <h1>Looks like you're offline!! Please check your internet connection</h1>);
-    
+
     return listOfRestaurant.length === 0 ? (<Shimmer />) :  (
         <div className="body">
-            <div className="filter">
-                <div className="search">
-                    <input type="text" className="search-box" value={searchText} onChange={(e)=>{
+            <div className="filter flex">
+                <div className="search m-4 p-4">
+                    <input type="text" className="border border-solid border-black mx-4" value={searchText} onChange={(e)=>{
                         setSearchText(e.target.value);
                     }}/>
-                    <button className="search-btn" onClick={()=>{
+                    <button className="px-4 bg-green-300 rounded-xl"  onClick={()=>{
                         // filter the restaurant and update the UI
                        const filteredRestaurant= listOfRestaurant.filter((res)=>
                          res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                         setFilteredRestaurant(filteredRestaurant);
                     }}>Search</button>
                 </div>
-                <button className="filter-btn" onClick={() => {
+                <div className="search m-4 p-4">
+                  <button className="px-4 bg-blue-300 rounded-lg" onClick={() => {
                     const filteredList = listOfRestaurant.filter(
                         (res) => res.info.avgRating > 4
                     );
@@ -58,8 +59,10 @@ const Body = () => {
                     setListOfRestaurant(filteredList);
                     }}
                     >Top Rated Restaurant</button>
+                </div>
+                
             </div>
-            <div className="res-container">
+            <div className="flex flex-wrap">
                 {
                     filteredRestaurant.map((restaurant) => (
                   <Link key={restaurant.info.id} to={"/restaurant/"+restaurant.info.id}  >

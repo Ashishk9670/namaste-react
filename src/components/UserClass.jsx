@@ -37,7 +37,7 @@ class UserClass extends React.Component {
                     count:this.state.count+1,
                 });
             }}>Count increase</button> */}
-            <img src={avatar_url}/>
+            <img className="w-[200px] h-[200px] " src={avatar_url}/>
             <h2>Name: {name}</h2>
             <h2>Location: {location}</h2>
             <h3>Contact: @as9670</h3>
