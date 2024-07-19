@@ -49,3 +49,7 @@
  -normal JS utility functions
  - useState() - superpowerfull react variables
  - useEffect()
+
+ # Routing
+    - client side
+    - server side
