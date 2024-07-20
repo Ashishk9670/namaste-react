@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 import { CDN_URL } from "../utils/constant";
 
 
@@ -23,7 +22,20 @@ const RestaurantCard = (props) => {
             {<h4>{sla.slaString}</h4> }
 
         </div>
-    )
-}
+    );
+};
+
+// Higher order component - output: promoted tag
+export const withPromotedLabel = (RestaurantCard) => {
+    return (props) => {
+        return (
+            <div>
+                <label className="absolute bg-black text-white m-2 p-4 rounded-lg">Promoted</label>
+                <RestaurantCard {...props}/>
+            </div> 
+        );
+    };
+};
+
 
 export default RestaurantCard;

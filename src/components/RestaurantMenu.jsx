@@ -4,6 +4,7 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import { MENU_API } from "../utils/constant";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 
 
 const RestaurantMenu = () => {
@@ -12,19 +13,7 @@ const RestaurantMenu = () => {
 
     const {resId} =useParams();
     const resInfo = useRestaurantMenu(resId);
-
-//     useEffect(() => {
-//         fetchMenu();
-//     },[]);
-
-//    const fetchMenu = async () => {
-//     const data = await fetch( MENU_API+ resId  );
-//     const json = await data.json();
-//     // console.log(json);
-//     setResInfo(json.data);
-
-//    };
-
+    const [showIndex,setShowIndex]= useState(null);
 
    if (resInfo === null) return  <Shimmer />;
 
@@ -36,22 +25,31 @@ const RestaurantMenu = () => {
     const { itemCards } =
      resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
    
-    console.log(itemCards);
-    
+    console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+
+    const categories = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(c=> c.card?.card?.["@type"]===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+
     return  (
-        <div className="menu">
-            <h1> {name}</h1>
-            <h2>{cuisines.join(", ")}</h2>
-            <h2>{costForTwoMessage}</h2>
-            <h2>Menu</h2>
-            <ul>
-                {itemCards.map(item =>
-                     <li key={item.card.info.id}>
-                        {item.card.info.name} - {"Rs."}{item.card.info.defaultPrice/100 
-                        ||item.card.info.finalPrice/100 || item.card.info.price/100}
-                        </li>)}
-               
-            </ul>
+        <div className="text-center">
+            <h1 className="font-bold my-5 text-lg"> {name}</h1>
+            <p>
+                <h2 className="font-bold">{cuisines.join(", ")} - {costForTwoMessage}</h2>
+                
+            </p>
+           
+           {/* {categories accordion} */}
+           {categories.map((category,index) => 
+        //    controlled component
+           <RestaurantCategory 
+           key= {category?.card?.card.title} 
+           showItems={ index === showIndex ? true: false}
+          setShowIndex={() => setShowIndex(index)}
+          data={category?.card?.card}
+          />
+          )}
+
         </div>
     );
 };

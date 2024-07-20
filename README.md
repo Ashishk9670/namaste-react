@@ -57,3 +57,11 @@
 # Chunking/Code splitting /Dynamic bundling/
 # Lazy loading/on demand loading/dynamic import
 - 
+
+# Redux toolkit
+- Install @reducjs/toolkit, react-redux
+- Build our own store
+- connect our store to app
+- Slice (cartSlice)
+- dispatch(action)
+- Selector
