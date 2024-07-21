@@ -4,6 +4,7 @@
   "description": "this is namaste React by ashish kumar",
   "scripts": {
     "test": "jest",
+    "watch-test" :"jest --watch",
     "start": "parcel index.html",
     "build": "parcel build index.html"
   },

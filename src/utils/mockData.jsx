@@ -1,4 +1,4 @@
-const resList = [
+ const MOCK_DATA = [
     {
       "info": {
         "id": "686198",
@@ -1884,4 +1884,4 @@ const resList = [
     }
   ];
 
-  export default resList;
+  export default MOCK_DATA;
